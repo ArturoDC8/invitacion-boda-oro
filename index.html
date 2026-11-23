@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f6e8da">
+<title>Agape Díaz y Amparo Araujo · Bodas de Oro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --marfil:#fbf4ea;
+  --durazno:#f4dcc8;
+  --champan:#ecd9b4;
+  --oro:#c9a24a;
+  --oro-oscuro:#8f6a1e;
+  --cobre:#b0743a;
+  --tinta:#4a3a2c;
+  --cristal:rgba(255,255,255,.62);
+  --script:"Great Vibes","Brush Script MT","Segoe Script",cursive;
+  --serif:"Cormorant Garamond","Playfair Display",Georgia,"Times New Roman",serif;
+  --sans:"Montserrat","Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--sans);color:var(--tinta);background:var(--marfil);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+/* Fondo tipo mármol suave */
+body::before{content:"";position:fixed;inset:0;z-index:-1;
+  background:
+    radial-gradient(ellipse 60% 40% at 15% 12%,rgba(244,220,200,.85),transparent 70%),
+    radial-gradient(ellipse 55% 45% at 90% 30%,rgba(255,255,255,.9),transparent 70%),
+    radial-gradient(ellipse 70% 40% at 20% 65%,rgba(240,208,184,.6),transparent 70%),
+    radial-gradient(ellipse 60% 50% at 85% 90%,rgba(244,220,200,.8),transparent 70%),
+    linear-gradient(160deg,#fcf6ee,#f7e7d8 50%,#fcf3e8)}
+a,button,input,select{font-family:inherit}
+:focus-visible{outline:3px solid var(--oro-oscuro);outline-offset:3px}
+section{padding:72px 20px;display:flex;flex-direction:column;align-items:center;text-align:center}
+h2{font-family:var(--script);font-weight:400;font-size:clamp(2.5rem,10vw,3.6rem);line-height:1.1;margin:0 0 4px;color:var(--oro-oscuro)}
+.filete{display:block;width:110px;height:14px;margin:0 auto 22px;color:var(--oro)}
+.card{background:var(--cristal);-webkit-backdrop-filter:blur(14px) saturate(120%);backdrop-filter:blur(14px) saturate(120%);color:var(--tinta);border:1px solid rgba(201,162,74,.6);border-radius:18px;padding:30px 24px;max-width:640px;width:100%;box-shadow:0 12px 34px rgba(150,110,60,.18)}
+.card p{margin:0 0 14px}
+.card p:last-child{margin-bottom:0}
+.card h3{font-family:var(--serif);font-size:1.7rem;margin:0 0 8px;color:var(--cobre)}
+.btn{display:inline-block;background:linear-gradient(135deg,#dcbb66,#b8902f);color:#2b2118;font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:.85rem;text-decoration:none;border:0;border-radius:999px;padding:14px 28px;cursor:pointer;min-height:46px}
+.btn:hover{filter:brightness(1.07)}
+.btn[aria-disabled="true"],.btn:disabled{opacity:.55;cursor:not-allowed;filter:none}
+
+/* Música (opcional) */
+#musica{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:50;background:var(--marfil);color:var(--oro-oscuro);border:1px solid var(--oro);border-radius:999px;padding:12px 18px;font-size:.82rem;font-weight:600;cursor:pointer;min-height:46px;box-shadow:0 6px 18px rgba(150,110,60,.25)}
+#musica[aria-pressed="true"]{background:var(--oro);color:#2b2118}
+
+/* Portada */
+#portada{min-height:100vh;min-height:100svh;justify-content:center;padding:120px 20px 120px;position:relative;overflow:hidden}
+.flores-top{position:absolute;top:-6px;left:50%;transform:translateX(-50%);width:min(96vw,440px);height:auto;pointer-events:none}
+.flores-abajo{position:absolute;right:-60px;bottom:-40px;width:min(62vw,260px);height:auto;transform:rotate(165deg);pointer-events:none}
+.anillos{position:absolute;left:10px;bottom:14px;width:118px;height:auto;pointer-events:none}
+.nuestra{font-family:var(--serif);font-size:clamp(1.3rem,5vw,1.7rem);letter-spacing:.14em;margin:0;color:var(--cobre)}
+.boda-oro{font-family:var(--script);font-weight:400;font-size:clamp(3.4rem,16vw,5.6rem);line-height:1.05;margin:0 0 14px;color:var(--oro-oscuro);background:linear-gradient(180deg,#d6b25a,#8f6a1e);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.foto-portada{position:relative;width:min(86vw,380px);aspect-ratio:5/4;border-radius:6px;overflow:hidden;background:linear-gradient(135deg,#f6e6d3,#efd5ba);margin:0 0 16px}
+.foto-portada img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.foto-portada .hueco{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-family:var(--serif);font-size:1.5rem;color:var(--cobre);opacity:.85}
+.foto-portada .hueco small{font-family:var(--sans);font-size:.72rem;letter-spacing:.08em}
+.foto-portada.ok .hueco{display:none}
+.foto-portada::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 20px 18px #fbf3ea;pointer-events:none}
+.nombres{font-family:var(--script);font-weight:400;font-size:clamp(2.5rem,11.5vw,4.2rem);line-height:1.15;margin:0 0 6px;color:var(--oro-oscuro);max-width:18ch}
+.nombres .y{font-size:.7em;color:var(--cobre);padding:0 .15em}
+.ini{font-family:var(--serif);font-weight:700;font-size:1.2em;letter-spacing:.01em}
+.anios{font-size:.78rem;letter-spacing:.3em;text-transform:uppercase;color:var(--cobre);margin:0 0 14px}
+.anfitriones{font-family:var(--serif);font-style:italic;font-size:1.15rem;margin:0 0 10px}
+.fecha-portada{font-family:var(--serif);font-size:clamp(1.3rem,5vw,1.8rem);font-weight:700;margin:0;color:var(--tinta)}
+.lugar-portada{margin:2px 0 0;opacity:.9}
+.desliza{margin-top:26px;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cobre);animation:flota 2.4s ease-in-out infinite}
+.desliza span{display:block;font-size:1.3rem;line-height:1}
+@keyframes flota{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+
+/* Cuenta regresiva */
+.cuenta{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:560px;width:100%}
+.cuenta div{background:var(--cristal);border:1px solid rgba(201,162,74,.6);border-radius:14px;padding:16px 4px;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 8px 22px rgba(150,110,60,.15)}
+.cuenta strong{display:block;font-family:var(--serif);font-size:clamp(1.8rem,8vw,2.8rem);line-height:1;color:var(--cobre)}
+.cuenta span{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase}
+#cuenta-fin{margin-top:16px;font-family:var(--script);font-size:2rem;color:var(--oro-oscuro)}
+.zona{margin-top:14px;font-size:.82rem;opacity:.85}
+
+/* Programa */
+.programa{list-style:none;margin:0;padding:0;max-width:560px;width:100%;text-align:left}
+.programa li{display:flex;flex-wrap:wrap;gap:18px;align-items:baseline;padding:16px 4px;border-bottom:1px solid rgba(201,162,74,.5)}
+.programa li:last-child{border-bottom:0}
+.hora{flex:0 0 auto;min-width:92px;font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--cobre)}
+.evento{font-size:1.05rem}
+
+.sep{border:0;border-top:1px solid rgba(201,162,74,.5);margin:24px 0}
+
+/* Galería */
+.carrusel{position:relative;max-width:720px;width:100%}
+.ventana{overflow:hidden;border-radius:18px;border:1px solid rgba(201,162,74,.6);background:rgba(255,255,255,.55);touch-action:pan-y}
+.pista{display:flex;transition:transform .5s ease}
+.slide{flex:0 0 100%;height:min(64vh,520px);display:flex;align-items:center;justify-content:center;padding:10px}
+.slide img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;border-radius:8px}
+.ctrl{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:16px}
+.ctrl button{width:48px;height:48px;border-radius:50%;border:1px solid var(--oro);background:rgba(255,255,255,.8);color:var(--oro-oscuro);font-size:1.4rem;cursor:pointer}
+.ctrl button:hover{background:var(--oro);color:#2b2118}
+#contador{min-width:64px;font-size:.95rem;letter-spacing:.1em}
+
+[hidden]{display:none !important}
+footer{padding:54px 20px calc(90px + env(safe-area-inset-bottom,0px));text-align:center}
+footer .nombres-pie{font-family:var(--script);font-size:2.4rem;color:var(--oro-oscuro);margin:6px 0 0;line-height:1.2}
+footer p{margin:4px 0}
+.anillos-pie{width:96px;height:auto;margin:0 auto 6px;display:block}
+
+.rev{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}
+.rev.vis{opacity:1;transform:none}
+
+@media (min-width:768px){section{padding:96px 32px}.card{padding:40px 44px}#portada{padding-top:150px}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none !important;transition:none !important}
+  .rev{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="gBanda" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff3c4"/><stop offset=".22" stop-color="#e6c35f"/><stop offset=".45" stop-color="#b88a26"/><stop offset=".62" stop-color="#f6dd8c"/><stop offset=".82" stop-color="#a87a1f"/><stop offset="1" stop-color="#ebcd74"/></linearGradient>
+    <linearGradient id="gInterior" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6e4c0f"/><stop offset="1" stop-color="#c79a3a"/></linearGradient>
+    <linearGradient id="gGema" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".5" stop-color="#dfeaf5"/><stop offset="1" stop-color="#9fb6cf"/></linearGradient>
+    <filter id="fBlur" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation=".7"/></filter>
+    <filter id="fBlur2" x="-30%" y="-100%" width="160%" height="300%"><feGaussianBlur stdDeviation="3.2"/></filter>
+    <filter id="fP" x="-15%" y="-15%" width="130%" height="130%"><feDropShadow dx="0" dy="1.2" stdDeviation="1.3" flood-color="#7a5a2a" flood-opacity=".5"/></filter>
+    <filter id="fR" x="-10%" y="-10%" width="125%" height="130%"><feDropShadow dx="0" dy="2.5" stdDeviation="2.5" flood-color="#6b4a14" flood-opacity=".35"/></filter>
+
+    <linearGradient id="gP" x1=".5" y1="1" x2=".5" y2="0"><stop offset="0" stop-color="#e2cca0"/><stop offset=".38" stop-color="#f6ebd2"/><stop offset=".8" stop-color="#fffbf2"/><stop offset="1" stop-color="#ffffff"/></linearGradient>
+    <radialGradient id="gCentro" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#d9bd86"/><stop offset=".6" stop-color="#ecd7aa" stop-opacity=".8"/><stop offset="1" stop-color="#f3e3bd" stop-opacity="0"/></radialGradient>
+    <path id="pet" d="M50 54C26 52 14 28 32 12C42 4 58 4 68 12C86 28 74 52 50 54Z" fill="url(#gP)" stroke="#cdb582" stroke-opacity=".55" stroke-width=".7"/>
+    <linearGradient id="gCobre" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#8f4f1e"/><stop offset=".6" stop-color="#c0793a"/><stop offset="1" stop-color="#e3a768"/></linearGradient>
+    <linearGradient id="gHojaOro" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#a8782a"/><stop offset=".6" stop-color="#d9ac4e"/><stop offset="1" stop-color="#f1d38a"/></linearGradient>
+    <linearGradient id="gGris" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#8c8490"/><stop offset=".6" stop-color="#b6aeb6"/><stop offset="1" stop-color="#d9d3d8"/></linearGradient>
+    <g id="hoja"><path d="M0 0C9 -12 11 -32 0 -52C-11 -32 -9 -12 0 0Z"/><path d="M0 -3V-46M0 -16L6 -24M0 -16L-6 -24M0 -28L5 -35M0 -28L-5 -35" fill="none" stroke="#fff" stroke-opacity=".4" stroke-width=".8" stroke-linecap="round"/></g>
+
+    <symbol id="rosa" viewBox="0 0 100 100">
+      <g filter="url(#fP)">
+        <use href="#pet"/><use href="#pet" transform="rotate(72 50 50)"/><use href="#pet" transform="rotate(144 50 50)"/><use href="#pet" transform="rotate(216 50 50)"/><use href="#pet" transform="rotate(288 50 50)"/>
+      </g>
+      <g filter="url(#fP)">
+        <use href="#pet" transform="rotate(36 50 50) translate(50 50) scale(.8) translate(-50 -50)"/><use href="#pet" transform="rotate(108 50 50) translate(50 50) scale(.8) translate(-50 -50)"/><use href="#pet" transform="rotate(180 50 50) translate(50 50) scale(.8) translate(-50 -50)"/><use href="#pet" transform="rotate(252 50 50) translate(50 50) scale(.8) translate(-50 -50)"/><use href="#pet" transform="rotate(324 50 50) translate(50 50) scale(.8) translate(-50 -50)"/>
+      </g>
+      <g filter="url(#fP)">
+        <use href="#pet" transform="rotate(18 50 50) translate(50 50) scale(.58) translate(-50 -50)"/><use href="#pet" transform="rotate(108 50 50) translate(50 50) scale(.58) translate(-50 -50)"/><use href="#pet" transform="rotate(198 50 50) translate(50 50) scale(.58) translate(-50 -50)"/><use href="#pet" transform="rotate(288 50 50) translate(50 50) scale(.58) translate(-50 -50)"/>
+      </g>
+      <circle cx="50" cy="50" r="15" fill="url(#gCentro)"/>
+      <g filter="url(#fP)">
+        <use href="#pet" transform="rotate(50 50 50) translate(50 50) scale(.32) translate(-50 -50)"/><use href="#pet" transform="rotate(170 50 50) translate(50 50) scale(.32) translate(-50 -50)"/><use href="#pet" transform="rotate(290 50 50) translate(50 50) scale(.32) translate(-50 -50)"/>
+      </g>
+      <path d="M44 50C44 44 54 43 56 50C57 56 47 58 45 53" fill="none" stroke="#c8ab74" stroke-opacity=".7" stroke-width=".9" stroke-linecap="round"/>
+    </symbol>
+
+    <symbol id="ramo" viewBox="0 0 320 140">
+      <g>
+        <use href="#hoja" fill="url(#gCobre)" transform="translate(84 80) rotate(-128) scale(1.63)"/>
+        <use href="#hoja" fill="url(#gGris)" transform="translate(84 80) rotate(-100) scale(1.71)"/>
+        <use href="#hoja" fill="url(#gHojaOro)" transform="translate(84 80) rotate(-72) scale(1.55)"/>
+        <use href="#hoja" fill="url(#gCobre)" transform="translate(84 80) rotate(-155) scale(1.40)"/>
+        <use href="#hoja" fill="url(#gCobre)" transform="translate(236 80) rotate(128) scale(1.63)"/>
+        <use href="#hoja" fill="url(#gGris)" transform="translate(236 80) rotate(100) scale(1.71)"/>
+        <use href="#hoja" fill="url(#gHojaOro)" transform="translate(236 80) rotate(72) scale(1.55)"/>
+        <use href="#hoja" fill="url(#gCobre)" transform="translate(236 80) rotate(155) scale(1.40)"/>
+        <use href="#hoja" fill="url(#gHojaOro)" transform="translate(160 66) rotate(-28) scale(1.71)"/>
+        <use href="#hoja" fill="url(#gGris)" transform="translate(160 66) rotate(28) scale(1.71)"/>
+        <path d="M60 96C40 100 28 92 18 80M260 96C280 100 292 92 302 80" fill="none" stroke="#c9a24a" stroke-width="1.4" stroke-linecap="round"/>
+        <circle cx="18" cy="80" r="3" fill="#d9a94e"/><circle cx="302" cy="80" r="3" fill="#d9a94e"/><circle cx="28" cy="92" r="2.2" fill="#e3b862"/><circle cx="292" cy="92" r="2.2" fill="#e3b862"/>
+      </g>
+      <use href="#rosa" x="40" y="36" width="88" height="88"/>
+      <use href="#rosa" x="192" y="36" width="88" height="88"/>
+      <use href="#rosa" x="104" y="6" width="112" height="112"/>
+    </symbol>
+
+    <symbol id="filete" viewBox="0 0 110 14">
+      <path d="M0 7H44M66 7H110" stroke="currentColor" stroke-width="1.4"/>
+      <path d="M55 1L61 7L55 13L49 7Z" fill="currentColor"/>
+    </symbol>
+
+    <g id="bandaG">
+      <path d="M-38 0a38 26 0 1 0 76 0a38 26 0 1 0 -76 0ZM-31 1.5a31 19.5 0 1 0 62 0a31 19.5 0 1 0 -62 0Z" fill="url(#gBanda)" fill-rule="evenodd"/>
+      <path d="M-31 1.5A31 19.5 0 0 1 31 1.5A31 14 0 0 0 -31 1.5Z" fill="url(#gInterior)"/>
+      <ellipse cx="0" cy="1.5" rx="31" ry="19.5" fill="none" stroke="#6e4c0f" stroke-opacity=".5" stroke-width="1"/>
+      <path d="M-34 -11A36 24 0 0 1 12 -25" fill="none" stroke="#fffbe0" stroke-width="2.2" stroke-linecap="round" opacity=".9" filter="url(#fBlur)"/>
+      <path d="M26 19A36 24 0 0 1 -14 25" fill="none" stroke="#fff1b0" stroke-width="1.5" stroke-linecap="round" opacity=".6" filter="url(#fBlur)"/>
+    </g>
+    <clipPath id="cruce"><rect x="58" y="10" width="44" height="46"/></clipPath>
+    <symbol id="anillos" viewBox="0 0 160 110">
+      <ellipse cx="80" cy="97" rx="54" ry="6" fill="#6b4a14" opacity=".28" filter="url(#fBlur2)"/>
+      <g filter="url(#fR)">
+        <use href="#bandaG" transform="translate(56 60) rotate(-24)"/>
+        <use href="#bandaG" transform="translate(102 52) rotate(18)"/>
+        <g clip-path="url(#cruce)"><use href="#bandaG" transform="translate(56 60) rotate(-24)"/></g>
+      </g>
+      <g transform="translate(108 25)">
+        <circle cx="-4" cy="5" r="1.6" fill="#c79a3a"/><circle cx="4" cy="5" r="1.6" fill="#c79a3a"/>
+        <path d="M0 -7L7 -1L0 7L-7 -1Z" fill="url(#gGema)" stroke="#b9c9db" stroke-width=".6"/>
+        <path d="M-7 -1H7M0 -7L-2.5 -1L0 7L2.5 -1Z" fill="none" stroke="#fff" stroke-opacity=".8" stroke-width=".5"/>
+      </g>
+      <path transform="translate(120 14)" d="M0 -9L1.6 -1.6L9 0L1.6 1.6L0 9L-1.6 1.6L-9 0L-1.6 -1.6Z" fill="#fff" opacity=".9"/>
+    </symbol>
+  </defs>
+</svg>
+
+<audio id="audio" loop preload="none"></audio>
+<button id="musica" type="button" aria-pressed="false" aria-label="Activar música" hidden>♫ Activar música</button>
+
+<main>
+  <!-- Portada -->
+  <section id="portada" aria-labelledby="titulo">
+    <svg class="flores-top" viewBox="0 0 320 140" aria-hidden="true" focusable="false"><use href="#ramo"/></svg>
+    <svg class="flores-abajo" viewBox="0 0 320 140" aria-hidden="true" focusable="false"><use href="#ramo"/></svg>
+    <svg class="anillos" viewBox="0 0 160 110" aria-hidden="true" focusable="false"><use href="#anillos"/></svg>
+
+    <p class="nuestra">Nuestra</p>
+    <p class="boda-oro" aria-hidden="true">Boda de Oro</p>
+
+    <figure class="foto-portada" id="foto-portada" style="margin-left:0;margin-right:0">
+      <div class="hueco" aria-hidden="true">Tu foto aquí<small>foto-portada.jpg</small></div>
+      <img id="img-portada" src="foto-portada.jpg" alt="Agape Díaz y Amparo Araujo, festejados de las Bodas de Oro">
+    </figure>
+
+    <h1 class="nombres" id="titulo"><span style="position:absolute;left:-9999px">Boda de Oro de </span><span class="ini">A</span>gape <span class="ini">D</span>íaz <span class="y">y</span> <span class="ini">A</span>mparo <span class="ini">A</span>raujo</h1>
+    <p class="anios">50 años de amor</p>
+    <p class="anfitriones" id="anfitriones" hidden></p>
+    <p class="fecha-portada" id="fecha-portada"></p>
+    <p class="lugar-portada" id="lugar-portada"></p>
+    <div class="desliza" aria-hidden="true">Desliza para descubrir<span>⌄</span></div>
+  </section>
+
+  <!-- El gran día -->
+  <section id="dia" aria-labelledby="h-dia" class="rev">
+    <h2 id="h-dia">El gran día</h2>
+    <svg class="filete" aria-hidden="true"><use href="#filete"/></svg>
+    <div class="card">
+      <p>Cincuenta años atrás dos corazones se prometieron caminar juntos, y hoy, tomados de la mano, siguen escribiendo la misma historia de amor, fe y complicidad.</p>
+      <p>Medio siglo de risas, de abrazos, de días difíciles superados y de una familia que crece. Queremos dar gracias a Dios y celebrar con las personas más queridas que nos han acompañado en el camino.</p>
+      <p>Tu presencia hará brillar aún más este día dorado.</p>
+    </div>
+  </section>
+
+  <!-- Cuenta regresiva -->
+  <section id="cuenta-sec" aria-labelledby="h-cuenta" class="rev">
+    <h2 id="h-cuenta">Faltan</h2>
+    <svg class="filete" aria-hidden="true"><use href="#filete"/></svg>
+    <div class="cuenta" id="cuenta" role="timer" aria-label="Cuenta regresiva para la celebración">
+      <div><strong id="c-d">0</strong><span>Días</span></div>
+      <div><strong id="c-h">0</strong><span>Horas</span></div>
+      <div><strong id="c-m">0</strong><span>Minutos</span></div>
+      <div><strong id="c-s">0</strong><span>Segundos</span></div>
+    </div>
+    <p id="cuenta-fin" hidden>¡Hoy celebramos 50 años de amor!</p>
+    <p class="zona">Hora del centro de México (America/Mexico_City, UTC-06:00)</p>
+  </section>
+
+  <!-- Programa -->
+  <section id="programa" aria-labelledby="h-programa" class="rev">
+    <h2 id="h-programa">Programa</h2>
+    <svg class="filete" aria-hidden="true"><use href="#filete"/></svg>
+    <div class="card">
+      <ul class="programa" id="lista-programa"></ul>
+    </div>
+  </section>
+
+  <!-- El lugar -->
+  <section id="lugar" aria-labelledby="h-lugar" class="rev">
+    <h2 id="h-lugar">El lugar</h2>
+    <svg class="filete" aria-hidden="true"><use href="#filete"/></svg>
+    <div class="card">
+      <h3>Misa</h3>
+      <p id="lugar-nombre"></p>
+      <p><a class="btn" id="btn-mapa" href="#" target="_blank" rel="noopener noreferrer">Ver ubicación de la misa</a></p>
+      <hr class="sep">
+      <h3>Cena</h3>
+      <p>Después de la misa, nos reuniremos para compartir la cena en:</p>
+      <p id="lugar-cena"></p>
+      <p><a class="btn" id="btn-mapa-cena" href="#" target="_blank" rel="noopener noreferrer">Ver ubicación de la cena</a></p>
+    </div>
+  </section>
+
+  <!-- Galería -->
+  <section id="galeria" aria-labelledby="h-galeria" class="rev">
+    <h2 id="h-galeria">Galería</h2>
+    <svg class="filete" aria-hidden="true"><use href="#filete"/></svg>
+    <div class="carrusel" role="region" aria-roledescription="carrusel" aria-label="Fotografías de Agape y Amparo">
+      <div class="ventana" id="ventana">
+        <div class="pista" id="pista">
+          <div class="slide"><img src="foto-1.jpg" alt="Los novios junto a su pastel de bodas de varios pisos" loading="lazy"></div>
+          <div class="slide"><img src="foto-2.jpg" alt="Fotografía en blanco y negro de los novios el día de su boda" loading="lazy"></div>
+          <div class="slide"><img src="foto-3.jpg" alt="Los novios junto a una camioneta verde el día de su boda" loading="lazy"></div>
+        </div>
+      </div>
+      <div class="ctrl">
+        <button type="button" id="prev" aria-label="Foto anterior">‹</button>
+        <span id="contador" aria-live="polite" aria-atomic="true">1 / 3</span>
+        <button type="button" id="next" aria-label="Foto siguiente">›</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mesa de regalos -->
+  <section id="regalos" aria-labelledby="h-regalos" class="rev">
+    <h2 id="h-regalos">Mesa de regalos</h2>
+    <svg class="filete" aria-hidden="true"><use href="#filete"/></svg>
+    <div class="card">
+      <p>Lo más valioso para nosotros es que nos acompañes y compartas este momento tan especial.</p>
+      <p>Si deseas tener un detalle con nosotros, el día del evento habrá una mesa de regalos. También habrá una mesa para recibir sobres, por si prefieres obsequiarnos efectivo en lugar de un regalo. Gracias de corazón por tu cariño.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <svg class="anillos-pie" viewBox="0 0 160 110" aria-hidden="true" focusable="false"><use href="#anillos"/></svg>
+  <p class="nombres-pie"><span class="ini">A</span>gape <span class="ini">D</span>íaz y <span class="ini">A</span>mparo <span class="ini">A</span>raujo</p>
+  <p>Bodas de Oro · 50 años de amor</p>
+  <p id="fecha-pie"></p>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ===================== CONFIGURACIÓN: EDITA AQUÍ ===================== */
+  const CONFIG = {
+    // Fecha y hora de inicio del evento, con zona UTC-06:00 (Ciudad de México)
+    eventoISO: '2026-12-26T17:00:00-06:00',     // sábado 26 dic 2026, 5:00 p. m. (hora de la misa)
+    lugar: 'Parroquia Nuestra Señora de Guadalupe, Col. Guadalupe',
+    mapsUrl: 'https://maps.app.goo.gl/U2i1WzeTYREoKUnP6',   // parroquia
+    lugarCena: 'Casa de la Familia Díaz Araujo',
+    mapsCenaUrl: 'https://maps.app.goo.gl/KcbwiYgYqik1FEaB9', // casa de la cena
+    anfitriones: 'Con la bendición de sus hijos y nietos', // vacío '' para ocultar
+    programa: [
+      { hora: '5:00 p. m.', evento: 'Misa en la Parroquia Nuestra Señora de Guadalupe' },
+      { hora: 'Después de la misa', evento: 'Cena en Casa de la Familia Díaz Araujo' }
+    ]
+  };
+
+  // Archivo de música (por ejemplo 'musica.mp3'). Si está vacío, el botón de música no aparece.
+  const MUSIC_URL = 'musica.mp3';
+  /* ====================================================================== */
+
+  const $ = (id) => document.getElementById(id);
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const evento = new Date(CONFIG.eventoISO);
+
+  /* ---------- Foto de portada (con espacio reservado) ---------- */
+  const figura = $('foto-portada');
+  const img = $('img-portada');
+  function fotoCargada(){ figura.classList.add('ok'); }
+  function fotoFalla(){ if (img.parentNode) img.parentNode.removeChild(img); figura.classList.remove('ok'); }
+  img.addEventListener('load', fotoCargada);
+  img.addEventListener('error', fotoFalla);
+  if (img.complete) { if (img.naturalWidth > 0) fotoCargada(); else fotoFalla(); }
+
+  /* ---------- Textos de la celebración ---------- */
+  function mayus(t){ return t.charAt(0).toUpperCase() + t.slice(1); }
+  let textoFecha = '';
+  if (!isNaN(evento)) {
+    textoFecha = mayus(new Intl.DateTimeFormat('es-MX', { dateStyle: 'full', timeZone: 'America/Mexico_City' }).format(evento));
+  }
+  $('fecha-portada').textContent = textoFecha;
+  $('fecha-pie').textContent = textoFecha;
+  $('lugar-portada').textContent = CONFIG.lugar;
+  $('lugar-nombre').textContent = CONFIG.lugar;
+  $('lugar-cena').textContent = CONFIG.lugarCena;
+  if (CONFIG.anfitriones) { $('anfitriones').textContent = CONFIG.anfitriones; $('anfitriones').hidden = false; }
+
+  const lista = $('lista-programa');
+  CONFIG.programa.forEach(function(p){
+    const li = document.createElement('li');
+    const h = document.createElement('span'); h.className = 'hora'; h.textContent = p.hora;
+    const e = document.createElement('span'); e.className = 'evento'; e.textContent = p.evento;
+    li.appendChild(h); li.appendChild(e); lista.appendChild(li);
+  });
+
+  function configurarMapa(btn, url){
+    if (url) { btn.href = url; }
+    else { btn.setAttribute('aria-disabled', 'true'); btn.addEventListener('click', function(e){ e.preventDefault(); }); }
+  }
+  configurarMapa($('btn-mapa'), CONFIG.mapsUrl);
+  configurarMapa($('btn-mapa-cena'), CONFIG.mapsCenaUrl);
+
+  /* ---------- Música (opcional) ---------- */
+  const audio = $('audio');
+  const btnMusica = $('musica');
+  function estadoMusica(activa){
+    btnMusica.setAttribute('aria-pressed', activa ? 'true' : 'false');
+    btnMusica.setAttribute('aria-label', activa ? 'Silenciar música' : 'Activar música');
+    btnMusica.textContent = activa ? '♫ Silenciar música' : '♫ Activar música';
+  }
+  if (MUSIC_URL) {
+    audio.src = MUSIC_URL;
+    btnMusica.hidden = false;
+    // Los navegadores no permiten sonido sin un toque: la música arranca con el primer toque en la página
+    function arrancarConPrimerToque(e){
+      if (btnMusica.contains(e.target)) return;
+      document.removeEventListener('pointerdown', arrancarConPrimerToque, true);
+      document.removeEventListener('keydown', arrancarConPrimerToque, true);
+      if (audio.paused) {
+        const p = audio.play();
+        if (p && typeof p.then === 'function') { p.then(function(){ estadoMusica(true); }).catch(function(){}); }
+      }
+    }
+    document.addEventListener('pointerdown', arrancarConPrimerToque, true);
+    document.addEventListener('keydown', arrancarConPrimerToque, true);
+    btnMusica.addEventListener('click', function(){
+      document.removeEventListener('pointerdown', arrancarConPrimerToque, true);
+      document.removeEventListener('keydown', arrancarConPrimerToque, true);
+      if (audio.paused) {
+        const p = audio.play();
+        if (p && typeof p.then === 'function') {
+          p.then(function(){ estadoMusica(true); }).catch(function(){ audio.pause(); estadoMusica(false); });
+        } else { estadoMusica(true); }
+      } else {
+        audio.pause();
+        estadoMusica(false);
+      }
+    });
+  }
+
+  /* ---------- Cuenta regresiva ---------- */
+  const cd = { d: $('c-d'), h: $('c-h'), m: $('c-m'), s: $('c-s') };
+  function tick(){
+    if (isNaN(evento)) return;
+    const diff = evento.getTime() - Date.now();
+    if (diff <= 0) {
+      $('cuenta').hidden = true; $('cuenta-fin').hidden = false;
+      return false;
+    }
+    const s = Math.floor(diff / 1000);
+    cd.d.textContent = Math.floor(s / 86400);
+    cd.h.textContent = String(Math.floor((s % 86400) / 3600)).padStart(2, '0');
+    cd.m.textContent = String(Math.floor((s % 3600) / 60)).padStart(2, '0');
+    cd.s.textContent = String(s % 60).padStart(2, '0');
+    return true;
+  }
+  if (tick() !== false) {
+    const timer = setInterval(function(){ if (tick() === false) clearInterval(timer); }, 1000);
+  }
+
+  /* ---------- Carrusel circular ---------- */
+  const pista = $('pista');
+  const total = pista.children.length;
+  let idx = 0;
+  function mostrar(i){
+    idx = (i + total) % total;
+    pista.style.transform = 'translateX(' + (-idx * 100) + '%)';
+    $('contador').textContent = (idx + 1) + ' / ' + total;
+  }
+  $('prev').addEventListener('click', function(){ mostrar(idx - 1); });
+  $('next').addEventListener('click', function(){ mostrar(idx + 1); });
+  let x0 = null, y0 = null;
+  const ventana = $('ventana');
+  ventana.addEventListener('touchstart', function(e){ x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, { passive: true });
+  ventana.addEventListener('touchend', function(e){
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0;
+    const dy = e.changedTouches[0].clientY - y0;
+    if (Math.abs(dx) >= 45 && Math.abs(dx) > Math.abs(dy)) { mostrar(dx < 0 ? idx + 1 : idx - 1); }
+    x0 = y0 = null;
+  }, { passive: true });
+
+  /* ---------- Aparición suave al desplazar ---------- */
+  const revs = document.querySelectorAll('.rev');
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    revs.forEach(function(el){ el.classList.add('vis'); });
+  } else {
+    const io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if (en.isIntersecting) { en.target.classList.add('vis'); io.unobserve(en.target); } });
+    }, { threshold: 0.12 });
+    revs.forEach(function(el){ io.observe(el); });
+  }
+})();
+</script>
+</body>
+</html>
